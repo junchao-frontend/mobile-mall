@@ -1,4 +1,4 @@
-export interface LoginFormInt {
+interface LoginFormInt {
     userName: string,
     password: string
 }

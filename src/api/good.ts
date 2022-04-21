@@ -1,6 +1,8 @@
-import request from '../http/index'
-export const getDetail = (id: number) => {
-    return request({
+import axios from '../http/index'
+import { AxiosPromise } from 'axios'
+import {ResponseData} from './config'
+export const getDetail = (id: any): AxiosPromise<ResponseData> => {
+    return axios.request({
         url: `/goods/detail/${id}`,
         method: 'GET',
     })

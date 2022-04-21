@@ -5,6 +5,7 @@ import './images/reset.css' // 全局样式
 import {createPinia} from 'pinia'
 import Vant from 'vant';
 import 'vant/lib/index.css'
+
 const store = createPinia()
 const app = createApp(App)
 // 全局过滤器

@@ -1,7 +1,8 @@
-import request from '../http/index'
-// 
-export const addAddress = (params: any) => {
-    return request({
+import axios from '../http/index'
+import { AxiosPromise } from 'axios'
+import {ResponseData} from './config'
+export const addAddress = (params: any):AxiosPromise<ResponseData> => {
+    return axios.request({
         url: '/address',
         method: 'POST',
         params

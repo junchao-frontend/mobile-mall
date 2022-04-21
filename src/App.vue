@@ -5,8 +5,26 @@
 
 
 <script lang="ts">
+import { getCart } from "./api/cart";
+import { onMounted } from "vue";
+import { useCounterStore } from "./store/index";
 export default {
-  setup(){
+  setup() {
+    const counter = useCounterStore(); // 获取pinia实例
+    onMounted(() => {
+      let params = {
+        pageNumber: 1
+      }
+      getCart(params).then(res => {
+        if (res.data.resultCode === 200) {
+          const cartData = res.data.data
+          let shopCount = cartData.length
+          counter.initCount(shopCount)
+          
+        }
+      })
+    })
+    
   }
 };
 </script>
@@ -16,6 +34,7 @@ export default {
   padding: 0;
   margin: 0;
 }
+
 html,
 body,
 #app {
